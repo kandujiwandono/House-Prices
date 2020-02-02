@@ -87,6 +87,8 @@ df_bsmt <- df_full %>%
 TrainDummBsmt <- dummyVars(~., df_bsmt)
 df_bsmt_dumm <- predict(TrainDummBsmt, df_bsmt)
 
+preprocess_bsmt <- preProcess(df_bsmt_dumm, method = 'bagImpute')
+df_bsmt_imputed <- predict(preprocess_bsmt, df_bsmt_dumm)
 
 # Explore -----------------------------------------------------------------
 
